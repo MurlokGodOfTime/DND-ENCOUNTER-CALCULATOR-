@@ -19,8 +19,9 @@ namespace Calculadora
         {
             double mult;
             if (Monstros.Length <= 1) { mult = 1; }
-            else if (Monstros.Length < 7) { mult = 1.5; }
-            else if (Monstros.Length < 11) { mult = 2; }
+            else if (Monstros.Length < 3) { mult = 1.5; }
+            else if (Monstros.Length < 7) { mult = 2; }
+            else if (Monstros.Length < 12) { mult = 2.5; }
             else if (Monstros.Length < 15) { mult = 3; }
             else { mult = 4; }
 
