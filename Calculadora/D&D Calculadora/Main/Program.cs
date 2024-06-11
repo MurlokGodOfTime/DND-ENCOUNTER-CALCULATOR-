@@ -33,6 +33,7 @@ namespace Calculadora
             {
                 Console.WriteLine("Choose a difficulty: \n1 - Easy \n2 - Medium \n3 - Hard \n4 - Deadly \n");
                 diff = Convert.ToInt32(Console.ReadLine());
+                Console.WriteLine( "\nMédia de dificuldade dos montros: " );
                 xp.Choice(levelStart, diff);
                 xp.Padrao(xp.ListaDados());
             }
