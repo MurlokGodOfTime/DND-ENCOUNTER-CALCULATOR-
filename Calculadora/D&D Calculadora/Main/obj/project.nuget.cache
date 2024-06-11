@@ -1,0 +1,15 @@
+{
+  "version": 2,
+  "dgSpecHash": "CZ/I8grfetxI+2IsFnxAJGtairSyrbCThsW/9NJYp0D1ym1QMYZgZw9lWiVt0Y7QHS/x2zoYO6ldKOvwX4PNTA==",
+  "success": true,
+  "projectFilePath": "C:\\Calculadora\\D&D Calculadora\\Main\\Calculadora.csproj",
+  "expectedPackageFiles": [],
+  "logs": [
+    {
+      "code": "NU1803",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "You are running the 'restore' operation with an 'HTTP' source, 'http://nuget.tjsp.jus.br:8080/nuget'. Non-HTTPS access will be removed in a future version. Consider migrating to an 'HTTPS' source."
+    }
+  ]
+}
