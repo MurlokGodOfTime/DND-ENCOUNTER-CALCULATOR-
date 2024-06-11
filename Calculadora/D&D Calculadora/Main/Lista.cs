@@ -34,18 +34,17 @@ namespace Calculadora
             {
                 for (int j = 0; j < Monstros.Length; j++)
                 {
-                    if (Soma() >= xp.Answ / mult)
+                    if (Soma() >= xp.Answ / mult) // descobrir como fazer um resultado mais exato e com um maior alcance dos níveis de monstros 
                     {
-                        if (Soma() < xp.Cap / mult)
+
+                        for (int k = 0; k < Monstros.Length; k++)
                         {
-                            for (int k = 0; k < Monstros.Length; k++)
-                            {
-                                Console.WriteLine("Monstro " + Monstros[k].CrN);
-                            }
+                            Console.WriteLine("Monstro " + Monstros[k].CrN);
                         }
-                        else
+
+                        if (Soma() > xp.Cap / mult)
                         {
-                            Console.WriteLine("Não foi possível obter o Xp matendo a dificuldade.");
+                            Console.WriteLine("O nível de dificuldade pode estár acima do requisitado"); // mensagem para conscientização 
                         }
                         return;
                     }

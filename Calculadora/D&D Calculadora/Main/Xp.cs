@@ -76,80 +76,35 @@ namespace Calculadora
             var lst2 = new List<Xp>()
             { // perguntar como que a quantidade e o multiplicador deveriam influenciar
                 new()
-                {
-                    Quant = 1,
-                    Mult = 1
-                },
+                {Quant = 1, Mult = 1},
                 new()
-                {
-                    Quant = 2,
-                    Mult = 1.5
-                },
+                {Quant = 2, Mult = 1.5},
                 new()
-                {
-                    Quant = 3,
-                    Mult = 2
-                },
+                {Quant = 3, Mult = 2},
                 new()
-                {
-                    Quant = 4,
-                    Mult = 2
-                },
+                {Quant = 4, Mult = 2},
                 new()
-                {
-                    Quant = 5,
-                    Mult = 2
-                },
+                {Quant = 5, Mult = 2},
                 new()
-                {
-                    Quant = 6,
-                    Mult = 2
-                },
+                {Quant = 6, Mult = 2},
                 new()
-                {
-                    Quant = 7,
-                    Mult = 2.5
-                },
+                {Quant = 7, Mult = 2.5},
                 new()
-                {
-                    Quant = 8,
-                    Mult = 2.5
-                },
+                {Quant = 8, Mult = 2.5},
                 new()
-                {
-                    Quant = 9,
-                    Mult = 2.5
-                },
+                {Quant = 9, Mult = 2.5},
                 new()
-                {
-                    Quant = 10,
-                    Mult = 2.5
-                },
+                {Quant = 10, Mult = 2.5},
                 new()
-                {
-                    Quant = 11,
-                    Mult = 3
-                },
+                {Quant = 11, Mult = 3},
                 new()
-                {
-                    Quant = 12,
-                    Mult = 3
-                },
+                {Quant = 12, Mult = 3},
                 new()
-                {
-                    Quant = 13,
-                    Mult = 3
-                },
+                {Quant = 13, Mult = 3},
                 new()
-                {
-                    Quant = 14,
-                    Mult = 3
-                },
+                {Quant = 14, Mult = 3},
                 new ()
-                {
-                    Quant = 15,
-                    Mult = 4
-                },
+                {Quant = 15, Mult = 4},
             };
 
             return lst2;
