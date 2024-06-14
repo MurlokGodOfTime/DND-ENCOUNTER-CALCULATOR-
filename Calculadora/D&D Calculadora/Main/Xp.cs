@@ -1,6 +1,4 @@
-﻿using System.Reflection.Emit;
-using System.Runtime.CompilerServices;
-
+﻿
 namespace Calculadora
 {
     internal class Xp
