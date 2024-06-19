@@ -1,8 +1,4 @@
-﻿// See https://aka.ms/new-console-template for more information
-
-
-
-namespace Calculadora
+﻿namespace Calculadora
 {
     class Program
     {
@@ -45,21 +41,6 @@ namespace Calculadora
                 Console.WriteLine( "\nMédia de dificuldade dos montros: " );
                 xp.Choice(levelStart, diff);
                 xp.Padrao(xp.ListaDados());
-
-                Console.Write("Quantos monstros deseja utilizar (1 - 15): ");
-                int qtd = Convert.ToInt32(Console.ReadLine());
-
-                if (qtd < 1)
-                {
-                    Console.WriteLine("Fala para todo mundo que o Xp ta de graça.");
-                    return;
-                }
-                else if (qtd > 15) { Console.WriteLine("Você está louco, mas aqui está sua lista de monstros: "); }
-                else { Console.WriteLine("Sua lista de monstros: "); }
-
-                var lista = new Lista(qtd);
-
-                lista.Quantidade(xp, diff);
             }
             else { return; }
             
