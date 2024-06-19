@@ -42,7 +42,7 @@
         for (int i = start; i < crX.Length; i++)
         {
             currentCombination.Add(crX[i]);
-            FindCombinationsInRangeHelper(crX, minSum, maxSum, k - 1, i + 1, currentCombination, result);
+            FindCombinationsInRangeHelper(crX, minSum, maxSum, k - 1, i, currentCombination, result); // i - 1 é melhor ou pior?
             currentCombination.RemoveAt(currentCombination.Count - 1);
         }
     }

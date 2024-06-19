@@ -1,4 +1,6 @@
-﻿
+﻿using static System.Console;
+using System.Diagnostics;
+
 namespace Calculadora
 {
     internal class Xp
@@ -52,13 +54,28 @@ namespace Calculadora
         // Encontra o nivel de dificuldade do inimigo
         public void Padrao(List<Xp> lstXp)
         {
-            
+            var stopwatch = new Stopwatch();
+            stopwatch.Start();
             foreach (var item in lstXp)
             {
+                stopwatch.Stop();
+                WriteLine($"Tempo passado: {stopwatch.Elapsed}");
+                stopwatch.Restart();
                 int calcAnsw = Convert.ToInt32(Math.Round(Answ / item.Mult / item.Quant));
                 int calcCap = Convert.ToInt32(Math.Round(Cap / item.Mult / item.Quant) -1); //limita a dificuldade do monstro
-                var Combination = new Combination();
-                Combination.Main(calcAnsw, calcCap, item.Quant);
+                if (calcCap >= item.Quant * 10)
+                {
+                    
+                    var Combination = new Combination();
+                    Combination.Main(calcAnsw, calcCap, item.Quant);
+                }
+                else 
+                {
+                    Console.WriteLine($"Combinations of {item.Quant} elements from array that sum between {calcAnsw} and {calcCap}:");
+                    Console.WriteLine("This is impossible");
+                }
+                stopwatch.Stop();
+                WriteLine($"Tempo passado: {stopwatch.Elapsed}");
             }
         }
         //Lista baseada em multiplicador de dificuldade baseado numero de inimigos
