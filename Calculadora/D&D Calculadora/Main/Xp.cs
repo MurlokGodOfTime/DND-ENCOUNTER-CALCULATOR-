@@ -23,7 +23,7 @@ namespace Calculadora
         //    new("cr25", 75000),  new("cr26", 90000),  new("cr27", 105000),  new("cr28", 120000),  new("cr29", 135000),  new("cr30", 155000)
         //];
 
-        // não apagar para uso depois
+        // não apagar, para uso futuro
 
         public void Choice(Level levelStart, int resp)
         {

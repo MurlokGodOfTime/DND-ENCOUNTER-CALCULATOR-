@@ -8,24 +8,19 @@
     "net8.0": []
   },
   "packageFolders": {
-    "C:\\Users\\herob\\.nuget\\packages\\": {},
-    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
+    "C:\\Users\\est-murilo.antunes\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\herob\\Source\\Repos\\DND-ENCOUNTER-CALCULATOR-\\Calculadora\\D&D Calculadora\\Main\\Calculadora.csproj",
+      "projectUniqueName": "C:\\Calculadora\\DND-ENCOUNTER-CALCULATOR-\\Calculadora\\D&D Calculadora\\Main\\Calculadora.csproj",
       "projectName": "Calculadora",
-      "projectPath": "C:\\Users\\herob\\Source\\Repos\\DND-ENCOUNTER-CALCULATOR-\\Calculadora\\D&D Calculadora\\Main\\Calculadora.csproj",
-      "packagesPath": "C:\\Users\\herob\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\herob\\Source\\Repos\\DND-ENCOUNTER-CALCULATOR-\\Calculadora\\D&D Calculadora\\Main\\obj\\",
+      "projectPath": "C:\\Calculadora\\DND-ENCOUNTER-CALCULATOR-\\Calculadora\\D&D Calculadora\\Main\\Calculadora.csproj",
+      "packagesPath": "C:\\Users\\est-murilo.antunes\\.nuget\\packages\\",
+      "outputPath": "C:\\Calculadora\\DND-ENCOUNTER-CALCULATOR-\\Calculadora\\D&D Calculadora\\Main\\obj\\",
       "projectStyle": "PackageReference",
-      "fallbackFolders": [
-        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-      ],
       "configFilePaths": [
-        "C:\\Users\\herob\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+        "C:\\Users\\est-murilo.antunes\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -34,6 +29,7 @@
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "C:\\Program Files\\dotnet\\library-packs": {},
+        "http://nuget.tjsp.jus.br:8080/nuget": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
@@ -75,5 +71,13 @@
         "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.300/PortableRuntimeIdentifierGraph.json"
       }
     }
-  }
+  },
+  "logs": [
+    {
+      "code": "NU1803",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "You are running the 'restore' operation with an 'HTTP' source, 'http://nuget.tjsp.jus.br:8080/nuget'. Non-HTTPS access will be removed in a future version. Consider migrating to an 'HTTPS' source."
+    }
+  ]
 }
