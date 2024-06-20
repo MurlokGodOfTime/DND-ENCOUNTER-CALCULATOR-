@@ -43,7 +43,7 @@ class Combination
         for (int i = start; crX[i] < maxSum; i++)
         {
             currentCombination.Add(crX[i]);
-            FindCombinationsInRangeHelper(crX, minSum, maxSum, k - 1, i, currentCombination, result); // i - 1 é melhor ou pior?
+            FindCombinationsInRangeHelper(crX, minSum, maxSum, k - 1, i, currentCombination, result);
             currentCombination.RemoveAt(currentCombination.Count - 1);
         }
     }
