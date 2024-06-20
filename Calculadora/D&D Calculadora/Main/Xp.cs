@@ -58,9 +58,9 @@ namespace Calculadora
             stopwatch.Start();
             foreach (var item in lstXp)
             {
-                stopwatch.Stop();
-                WriteLine($"Tempo passado: {stopwatch.Elapsed}");
-                stopwatch.Restart();
+                //stopwatch.Stop();
+                //WriteLine($"Tempo passado: {stopwatch.Elapsed}");
+                //stopwatch.Restart();
                 int calcAnsw = Convert.ToInt32(Math.Round(Answ / item.Mult / item.Quant));
                 int calcCap = Convert.ToInt32(Math.Round(Cap / item.Mult / item.Quant) -1); //limita a dificuldade do monstro
                 if (calcCap >= item.Quant * 10)
@@ -74,9 +74,9 @@ namespace Calculadora
                     Console.WriteLine($"Combinations of {item.Quant} elements from array that sum between {calcAnsw} and {calcCap}:");
                     Console.WriteLine("This is impossible");
                 }
-                stopwatch.Stop();
-                WriteLine($"Tempo passado: {stopwatch.Elapsed}");
             }
+            stopwatch.Stop();
+            WriteLine($"Tempo passado: {stopwatch.Elapsed}");
         }
         //Lista baseada em multiplicador de dificuldade baseado numero de inimigos
         public List<Xp> ListaDados()
