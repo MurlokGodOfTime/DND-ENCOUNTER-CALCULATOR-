@@ -1,4 +1,6 @@
-﻿
+﻿using static System.Console;
+using System.Diagnostics;
+
 namespace Calculadora
 {
     internal class Xp
@@ -13,14 +15,15 @@ namespace Calculadora
 
         public int Number { get; set; }
 
-        public readonly Monsters[] monsters = [
-            new("cr0", 10),      new("cr1_8", 25),    new("cr1_4", 50),    new("cr1_2", 100),  new("cr1", 200),    new("cr2", 450),
-            new("cr3", 700),     new("cr4", 1100),    new("cr5", 1800),    new("cr6", 2300),   new("cr7", 2900),   new("cr8", 3900),
-            new("cr9", 5000),    new("cr10", 5900),   new("cr11", 7200),   new("cr12", 8400),  new("cr13", 10000), new("cr14", 11500),
-            new("cr15", 13000),  new("cr16", 15000),  new("cr17", 18000),  new("cr18", 20000), new("cr19", 22000), new("cr20", 25000),
-            new("cr21", 33000),  new("cr22", 41000),  new("cr23", 50000),  new("cr24", 62000), new("cr25", 75000), new("cr26", 90000),
-            new("cr27", 105000), new("cr28", 120000), new("cr29", 135000), new("cr30", 155000)
-        ];
+        //public readonly Monsters[] monsters = [
+        //    new("cr0", 10),      new("cr1_8", 25),    new("cr1_4", 50),     new("cr1_2", 100),    new("cr1", 200),      new("cr2", 450),     new("cr3", 700),     
+        //    new("cr4", 1100),    new("cr5", 1800),    new("cr6", 2300),     new("cr7", 2900),     new("cr8", 3900),     new("cr9", 5000),    new("cr10", 5900),   
+        //    new("cr11", 7200),   new("cr12", 8400),   new("cr13", 10000),   new("cr14", 11500),   new("cr15", 13000),   new("cr16", 15000),  new("cr17", 18000),  
+        //    new("cr18", 20000),  new("cr19", 22000),  new("cr20", 25000),   new("cr21", 33000),   new("cr22", 41000),   new("cr23", 50000),  new("cr24", 62000), 
+        //    new("cr25", 75000),  new("cr26", 90000),  new("cr27", 105000),  new("cr28", 120000),  new("cr29", 135000),  new("cr30", 155000)
+        //];
+
+        // não apagar para uso depois
 
         public void Choice(Level levelStart, int resp)
         {
@@ -29,19 +32,19 @@ namespace Calculadora
             {
                 case 1:
                     Answ = levelStart.EasyR;
-                    Cap = levelStart.MediumR;
+                    Cap  = levelStart.MediumR;
                     break;
                 case 2:
                     Answ = levelStart.MediumR;
-                    Cap = levelStart.HardR;
+                    Cap  = levelStart.HardR;
                     break;
                 case 3:
                     Answ = levelStart.HardR;
-                    Cap = levelStart.DeadlyR;
+                    Cap  = levelStart.DeadlyR;
                     break;
                 case 4:
                     Answ = levelStart.DeadlyR;
-                    Cap = levelStart.DeadlyR * 2;
+                    Cap  = levelStart.DeadlyR * 2;
                     break;
                 default:
                     Console.WriteLine("Bruh..."); //mensagem de erro
@@ -51,21 +54,29 @@ namespace Calculadora
         // Encontra o nivel de dificuldade do inimigo
         public void Padrao(List<Xp> lstXp)
         {
+            var stopwatch = new Stopwatch();
+            stopwatch.Start();
             foreach (var item in lstXp)
             {
-                var calcAnsw = Answ / item.Mult / item.Quant;
-                var calcCap = Cap / item.Mult / item.Quant; //limita a dificuldade do monstro
-                for (Number = 33; monsters[Number].CrX > calcAnsw; Number--)
+                //stopwatch.Stop();
+                //WriteLine($"Tempo passado: {stopwatch.Elapsed}");
+                //stopwatch.Restart();
+                int calcAnsw = Convert.ToInt32(Math.Round(Answ / item.Mult / item.Quant));
+                int calcCap = Convert.ToInt32(Math.Round(Cap / item.Mult / item.Quant) -1); //limita a dificuldade do monstro
+                if (calcCap >= item.Quant * 10)
                 {
-                    if (10 > calcAnsw) // se muitos inimigos para confronto justo, colocar o inimigo mais fácil
-                    {
-                        Number = 1;
-                        break;
-                    };
+                    
+                    var Combination = new Combination();
+                    Combination.Main(calcAnsw, calcCap, item.Quant);
                 }
-                if (calcCap <= monsters[Number].CrX) { Number--; } // coloca um limite para que não suba o nível de dificuldade
-                Console.WriteLine(item.Quant + monsters[Number].ToString());
+                else 
+                {
+                    Console.WriteLine($"Combinations of {item.Quant} elements from array that sum between {calcAnsw} and {calcCap}:");
+                    Console.WriteLine("This is impossible");
+                }
             }
+            stopwatch.Stop();
+            WriteLine($"Tempo passado: {stopwatch.Elapsed}");
         }
         //Lista baseada em multiplicador de dificuldade baseado numero de inimigos
         public List<Xp> ListaDados()
