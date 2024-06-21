@@ -20,15 +20,10 @@ class Combination
         List<Monsters> currentCombination = new List<Monsters>();
 
         // Array.Sort(crX); // Sort array to optimize the combination finding process
-        if (minSum > combinationLength * monsters[10].CrX) { start = 10; }
-        else if (minSum > combinationLength * monsters[9].CrX) { start = 9; }
-        else if (minSum > combinationLength * monsters[8].CrX) { start = 8; }
+        if (minSum > combinationLength * monsters[9].CrX) { start = 9; }
         else if (minSum > combinationLength * monsters[7].CrX) { start = 7; }
-        else if (minSum > combinationLength * monsters[6].CrX) { start = 6; }
         else if (minSum > combinationLength * monsters[5].CrX) { start = 5; }
-        else if (minSum > combinationLength * monsters[4].CrX) { start = 4; }
         else if (minSum > combinationLength * monsters[3].CrX) { start = 3; }
-        else if (minSum > combinationLength * monsters[2].CrX) { start = 2; }
         else if (minSum > combinationLength * monsters[1].CrX) { start = 1; }
         else { start = 0; }
 
