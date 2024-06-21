@@ -17,14 +17,14 @@ namespace Calculadora
 
         
         public readonly Monsters[] monsters = [
-            new("cr0", 10),      new("cr1_8", 25),    new("cr1_4", 50),     new("cr1_2", 100),    new("cr1", 200),      new("cr2", 450),     new("cr3", 700),     
-            new("cr4", 1100),    new("cr5", 1800),    new("cr6", 2300),     new("cr7", 2900),     new("cr8", 3900),     new("cr9", 5000),    new("cr10", 5900),   
-            new("cr11", 7200),   new("cr12", 8400),   new("cr13", 10000),   new("cr14", 11500),   new("cr15", 13000),   new("cr16", 15000),  new("cr17", 18000),  
-            new("cr18", 20000),  new("cr19", 22000),  new("cr20", 25000),   new("cr21", 33000),   new("cr22", 41000),   new("cr23", 50000),  new("cr24", 62000), 
-            new("cr25", 75000),  new("cr26", 90000),  new("cr27", 105000),  new("cr28", 120000),  new("cr29", 135000),  new("cr30", 155000)];
-        
+            new("cr0", 10),      new("cr1_8", 25),    new("cr1_4", 50),     new("cr1_2", 100),      //  0  -  3
+            new("cr1", 200),     new("cr2", 450),     new("cr3", 700),      new("cr4", 1100),     new("cr5", 1800),         //  4  -  8 
+            new("cr6", 2300),    new("cr7", 2900),    new("cr8", 3900),     new("cr9", 5000),     new("cr10", 5900),        //  9  -  13
+            new("cr11", 7200),   new("cr12", 8400),   new("cr13", 10000),   new("cr14", 11500),   new("cr15", 13000),       // 14  -  18
+            new("cr16", 15000),  new("cr17", 18000),  new("cr18", 20000),   new("cr19", 22000),   new("cr20", 25000),       // 19  -  23
+            new("cr21", 33000),  new("cr22", 41000),  new("cr23", 50000),   new("cr24", 62000),   new("cr25", 75000),       // 24  -  28
+            new("cr26", 90000),  new("cr27", 105000), new("cr28", 120000),  new("cr29", 135000),  new("cr30", 155000)];     // 29  -  34
 
-        // não apagar, para uso futuro
 
         public void Choice(Level levelStart, int resp)
         {
@@ -48,7 +48,7 @@ namespace Calculadora
                     Cap  = levelStart.DeadlyR * 2;
                     break;
                 default:
-                    Console.WriteLine("Bruh..."); //mensagem de erro
+                    Console.WriteLine("Choose a number between 1 and 4."); //mensagem de erro
                     return;
             }
         }
@@ -59,26 +59,6 @@ namespace Calculadora
             int x = int.Parse(Console.ReadLine());
             var stopwatch = new Stopwatch();
             stopwatch.Start();
-            /*foreach (var item in lstXp)
-            {
-                //stopwatch.Stop();
-                //WriteLine($"Tempo passado: {stopwatch.Elapsed}");
-                //stopwatch.Restart();
-                int calcAnsw = Convert.ToInt32(Math.Round(Answ / item.Mult / item.Quant));
-                int calcCap = Convert.ToInt32(Math.Round(Cap / item.Mult / item.Quant) -1); //limita a dificuldade do monstro
-                if (calcCap >= item.Quant * 10)
-                {
-                    
-                    var Combination = new Combination();
-                    Combination.Main(calcAnsw, calcCap, item.Quant);
-                }
-                else 
-                {
-                    Console.WriteLine($"Combinations of {item.Quant} elements from array that sum between {calcAnsw} and {calcCap}:");
-                    Console.WriteLine("This is impossible");
-                }
-            }*/
-
             
             int calcAnsw = Convert.ToInt32(Math.Round(Answ / lstXp[x - 1].Mult / lstXp[x - 1].Quant));
             int calcCap = Convert.ToInt32(Math.Round(Cap / lstXp[x - 1].Mult / lstXp[x - 1].Quant) - 1); //limita a dificuldade do monstro
@@ -90,7 +70,7 @@ namespace Calculadora
             else
             {
                 Console.WriteLine($"Combinations of {lstXp[x - 1].Quant} elements from array that sum between {calcAnsw} and {calcCap}:");
-                Console.WriteLine("This is impossible");
+                Console.WriteLine("This is impossible.");
             }//*/
 
             stopwatch.Stop();

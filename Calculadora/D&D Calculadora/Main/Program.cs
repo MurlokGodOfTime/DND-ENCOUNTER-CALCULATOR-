@@ -7,13 +7,13 @@
             Console.Write("Number of Players: ");
             if(!int.TryParse(Console.ReadLine(), out int players))
             {
-                Console.WriteLine("Favor inserir um numero maior que 0.");
+                Console.WriteLine("Please select a number higher then 0.");
                 return;
             }
             Console.Write("Player's Level (1 - 20): "); 
             if (!int.TryParse(Console.ReadLine(), out int level))
             {
-                Console.WriteLine("Favor inserir um numero de 1 a 20.");
+                Console.WriteLine("Please select a number between 1 and 20.");
                 return;
             }
             Console.WriteLine();
@@ -29,7 +29,7 @@
             Console.Write("\n 0 - Stop\n 1 - Desmember\n");
             if (!int.TryParse(Console.ReadLine(), out int progress))
             {
-                Console.WriteLine("Qualquer valor diferente de 1 fecha o programa");
+                Console.WriteLine("Any number other then 1 closes this aplication.");
                 return;
             }
             if (progress == 1)
@@ -38,7 +38,6 @@
                 int diff;
                 Console.WriteLine("Choose a difficulty: \n1 - Easy \n2 - Medium \n3 - Hard \n4 - Deadly \n");
                 diff = Convert.ToInt32(Console.ReadLine());
-                Console.WriteLine( "\nMédia de dificuldade dos montros: " );
                 xp.Choice(levelStart, diff);
                 xp.Padrao(xp.ListaDados());
             }
