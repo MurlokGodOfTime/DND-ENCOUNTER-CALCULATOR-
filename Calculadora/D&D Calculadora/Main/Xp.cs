@@ -60,8 +60,8 @@ namespace Calculadora
             var stopwatch = new Stopwatch();
             stopwatch.Start();
             
-            int calcAnsw = Convert.ToInt32(Math.Round(Answ / lstXp[x - 1].Mult / lstXp[x - 1].Quant));
-            int calcCap = Convert.ToInt32(Math.Round(Cap / lstXp[x - 1].Mult / lstXp[x - 1].Quant) - 1); //limita a dificuldade do monstro
+            int calcAnsw = Convert.ToInt32(Math.Round(Answ / lstXp[x - 1].Mult));
+            int calcCap = Convert.ToInt32(Math.Round(Cap / lstXp[x - 1].Mult)); //limita a dificuldade do monstro
             if (calcCap >= lstXp[x - 1].Quant * 10)
             {
                 var Combination = new Combination();
