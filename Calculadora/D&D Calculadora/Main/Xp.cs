@@ -16,7 +16,7 @@ namespace Calculadora
         public int Number { get; set; }
 
         
-        public readonly Monsters[] monsters = [
+        public Monsters[] monsters = [
             new("cr0", 10),      new("cr1_8", 25),    new("cr1_4", 50),     new("cr1_2", 100),      //  0  -  3
             new("cr1", 200),     new("cr2", 450),     new("cr3", 700),      new("cr4", 1100),     new("cr5", 1800),         //  4  -  8 
             new("cr6", 2300),    new("cr7", 2900),    new("cr8", 3900),     new("cr9", 5000),     new("cr10", 5900),        //  9  -  13
@@ -55,8 +55,12 @@ namespace Calculadora
         // Encontra o nivel de dificuldade do inimigo
         public void Padrao(List<Xp> lstXp)
         {
-            Console.Write("Write the number of monsters you want to use ( 1 - 15 ): ");
-            int x = int.Parse(Console.ReadLine());
+            int x = 0;
+            while (x < 1 || x > 15)
+            {
+                Console.Write("Write the number of monsters you want to use ( 1 - 15 ): ");
+                int.TryParse(Console.ReadLine(), out x);
+            }
             var stopwatch = new Stopwatch();
             stopwatch.Start();
             

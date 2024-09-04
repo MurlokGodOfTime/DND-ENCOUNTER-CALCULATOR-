@@ -4,7 +4,7 @@
     {
         public string CrN { get; private set; }
         public int CrX { get; private set; }
-
+        public int resposta { get; set; }
         public Monsters(string name, int xp)
         {
             CrN = name;
@@ -13,7 +13,11 @@
 
         public override string ToString()
         {
-            return CrN;
+            if(resposta == 1)
+            {
+                return CrN;
+            }
+            return CrX.ToString();
         }
     }
 }

@@ -4,17 +4,17 @@
     {
         static void Main(String[] args)
         {
-            Console.Write("Number of Players: ");
-            if(!int.TryParse(Console.ReadLine(), out int players))
+            int players = 0;
+            int level = 0;
+            while (players < 1 || players > 10)
             {
-                Console.WriteLine("Please select a number higher then 0.");
-                return;
+                Console.Write("Number of Players:\n");
+                int.TryParse(Console.ReadLine(), out players);
             }
-            Console.Write("Player's Level (1 - 20): "); 
-            if (!int.TryParse(Console.ReadLine(), out int level))
+            while (level < 1 || level > 20)
             {
-                Console.WriteLine("Please select a number between 1 and 20.");
-                return;
+                Console.Write("Player's Level (1 - 20): ");
+                int.TryParse(Console.ReadLine(), out level);
             }
             Console.WriteLine();
 
@@ -25,24 +25,25 @@
             var texto = new Text();
             var lst = texto.ListaNom(levelStart);
             texto.Tabela(lst);
-
-            Console.Write("\n 0 - Stop\n 1 - Desmember\n");
-            if (!int.TryParse(Console.ReadLine(), out int progress))
+            var xp = new Xp();
+            int resposta = 0;
+            while (resposta < 1 || resposta > 2)
             {
-                Console.WriteLine("Any number other then 1 closes this aplication.");
-                return;
+                Console.WriteLine("Select:\n1 - Cr \n2 - Xp\n");
+                int.TryParse(Console.ReadLine(), out resposta);
             }
-            if (progress == 1)
+            foreach(var monstro in xp.monsters)
             {
-                var xp = new Xp();
-                int diff;
+                monstro.resposta = resposta;
+            }
+            int diff = 0;
+            while (diff < 1 || diff > 4)
+            {
                 Console.WriteLine("Choose a difficulty: \n1 - Easy \n2 - Medium \n3 - Hard \n4 - Deadly \n");
-                diff = Convert.ToInt32(Console.ReadLine());
-                xp.Choice(levelStart, diff);
-                xp.Padrao(xp.ListaDados());
+                int.TryParse(Console.ReadLine(), out diff);
             }
-            else { return; }
-            
+            xp.Choice(levelStart, diff);
+            xp.Padrao(xp.ListaDados());
         }
     }
 }

@@ -20,12 +20,9 @@ class Combination
         List<Monsters> currentCombination = new List<Monsters>();
 
         // Array.Sort(crX); // Sort array to optimize the combination finding process
-        if (minSum > combinationLength * monsters[9].CrX) { start = 9; }
-        else if (minSum > combinationLength * monsters[7].CrX) { start = 7; }
-        else if (minSum > combinationLength * monsters[5].CrX) { start = 5; }
-        else if (minSum > combinationLength * monsters[3].CrX) { start = 3; }
-        else if (minSum > combinationLength * monsters[1].CrX) { start = 1; }
-        else { start = 0; }
+        for (int i = 0; minSum > combinationLength * monsters[i].CrX || i == 34; i++)
+        { start = i - 1; }
+        if (start < 0) { start = 0; }
 
         FindCombinationsInRangeHelper(monsters, minSum, maxSum, combinationLength, start, currentCombination, result);
 
