@@ -11,8 +11,6 @@ namespace Calculadora
 
         public double Mult { get; set; }
 
-        public int Quant { get; set; }
-
         public int Number { get; set; }
 
         
@@ -24,7 +22,6 @@ namespace Calculadora
             new("cr16", 15000),  new("cr17", 18000),  new("cr18", 20000),   new("cr19", 22000),   new("cr20", 25000),       // 19  -  23
             new("cr21", 33000),  new("cr22", 41000),  new("cr23", 50000),   new("cr24", 62000),   new("cr25", 75000),       // 24  -  28
             new("cr26", 90000),  new("cr27", 105000), new("cr28", 120000),  new("cr29", 135000),  new("cr30", 155000)];     // 29  -  34
-
 
         public void Choice(Level levelStart, int resp)
         {
@@ -53,72 +50,39 @@ namespace Calculadora
             }
         }
         // Encontra o nivel de dificuldade do inimigo
-        public void Padrao(List<Xp> lstXp)
+        public void Padrao()
         {
-            int x = 0;
-            while (x < 1 || x > 15)
+            int quant = 0;
+            while (quant < 1)
             {
-                Console.Write("Write the number of monsters you want to use ( 1 - 15 ): ");
-                int.TryParse(Console.ReadLine(), out x);
+                Console.Write("Write the number of monsters you want to use: ");
+                int.TryParse(Console.ReadLine(), out quant);
             }
+            if (quant == 1) { Mult = 1; }
+            else if (quant == 2) { Mult = 1.5; }
+            else if (quant <= 6) { Mult = 2; }
+            else if (quant <= 10) { Mult = 2.5; }
+            else if (quant <= 14) { Mult = 3; }
+            else { Mult = 4; }
+
             var stopwatch = new Stopwatch();
             stopwatch.Start();
             
-            int calcAnsw = Convert.ToInt32(Math.Round(Answ / lstXp[x - 1].Mult));
-            int calcCap = Convert.ToInt32(Math.Round(Cap / lstXp[x - 1].Mult)); //limita a dificuldade do monstro
-            if (calcCap >= lstXp[x - 1].Quant * 10)
+            int calcAnsw = Convert.ToInt32(Math.Round(Answ / Mult));
+            int calcCap = Convert.ToInt32(Math.Round(Cap / Mult)); //limita a dificuldade do monstro
+            if (calcCap >= quant * 10)
             {
                 var Combination = new Combination();
-                Combination.Main(monsters, calcAnsw, calcCap, lstXp[x - 1].Quant);
+                Combination.Main(monsters, calcAnsw, calcCap, quant);
             }
             else
             {
-                Console.WriteLine($"Combinations of {lstXp[x - 1].Quant} elements from array that sum between {calcAnsw} and {calcCap}:");
+                Console.WriteLine($"Combinations of {quant} elements from array that sum between {calcAnsw} and {calcCap}:");
                 Console.WriteLine("This is impossible.");
-            }//*/
+            }
 
             stopwatch.Stop();
             WriteLine($"Tempo passado: {stopwatch.Elapsed}");
-        }
-        //Lista baseada em multiplicador de dificuldade baseado numero de inimigos
-        public List<Xp> ListaDados()
-        {
-
-            var lst2 = new List<Xp>()
-            { // perguntar como que a quantidade e o multiplicador deveriam influenciar
-                new()
-                {Quant = 1, Mult = 1},
-                new()
-                {Quant = 2, Mult = 1.5},
-                new()
-                {Quant = 3, Mult = 2},
-                new()
-                {Quant = 4, Mult = 2},
-                new()
-                {Quant = 5, Mult = 2},
-                new()
-                {Quant = 6, Mult = 2},
-                new()
-                {Quant = 7, Mult = 2.5},
-                new()
-                {Quant = 8, Mult = 2.5},
-                new()
-                {Quant = 9, Mult = 2.5},
-                new()
-                {Quant = 10, Mult = 2.5},
-                new()
-                {Quant = 11, Mult = 3},
-                new()
-                {Quant = 12, Mult = 3},
-                new()
-                {Quant = 13, Mult = 3},
-                new()
-                {Quant = 14, Mult = 3},
-                new ()
-                {Quant = 15, Mult = 4},
-            };
-
-            return lst2;
         }
     }
 }

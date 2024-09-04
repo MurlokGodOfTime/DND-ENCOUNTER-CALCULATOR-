@@ -43,7 +43,7 @@
                 int.TryParse(Console.ReadLine(), out diff);
             }
             xp.Choice(levelStart, diff);
-            xp.Padrao(xp.ListaDados());
+            xp.Padrao();
         }
     }
 }
