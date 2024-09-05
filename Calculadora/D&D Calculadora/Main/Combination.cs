@@ -1,36 +1,33 @@
 ﻿using System.ComponentModel;
+using System.Diagnostics;
 using Calculadora;
 class Combination
 {
-    public int start { get; set; }
+    public int Start { get; set; }
     internal void Main(Monsters[] monsters, int calcAnsw, int calcCap, int quant)
     {
-        List<List<Monsters>> combinations = FindCombinationsInRange(monsters, calcAnsw, calcCap, quant, start);
-
+        List<List<Monsters>> combinations = FindCombinationsInRange(monsters, calcAnsw, calcCap, quant, Start);
+        var stopwatch = new Stopwatch();
+        stopwatch.Start();
         Console.WriteLine($"Combinations of {quant} monsters that sum between {calcAnsw} and {calcCap}:");
         foreach (var combination in combinations)
         {
             Console.WriteLine(string.Join(", ", combination)); // Combination uses Monsters.ToString() to print the itens.
         }
+        stopwatch.Stop();
+        Console.WriteLine($"Tempo do print: {stopwatch.Elapsed}");
     }
-
     static List<List<Monsters>> FindCombinationsInRange(Monsters[] monsters, int minSum, int maxSum, int combinationLength, int start)
     {
-        List<List<Monsters>> result = new List<List<Monsters>>();
-        List<Monsters> currentCombination = new List<Monsters>();
-
-        // Array.Sort(crX); // Sort array to optimize the combination finding process
+        List<List<Monsters>> result = [];
+        List<Monsters> currentCombination = [];
+        // Limitando as combinações para otimizar o calculo
         for (int i = 0; minSum > combinationLength * monsters[i].CrX || i == 34; i++)
-        { start = i - 1; }
-        if (start < 0) { start = 0; }
-
+        { start = i; }
         FindCombinationsInRangeHelper(monsters, minSum, maxSum, combinationLength, start, currentCombination, result);
-
         return result;
     }
-
-    static void FindCombinationsInRangeHelper(Monsters[] monsters, int minSum, int maxSum, int k, int start,
-                                              List<Monsters> currentCombination, List<List<Monsters>> result)
+    static void FindCombinationsInRangeHelper(Monsters[] monsters, int minSum, int maxSum, int k, int start,List<Monsters> currentCombination, List<List<Monsters>> result)
     {
         if (k == 0)
         {
@@ -44,7 +41,7 @@ class Combination
         }
         for (int i = start; i < monsters.Length; i++)
         {
-            if (monsters[i].CrX < maxSum)
+            if (monsters[i].CrX + ((k - 1) * monsters[start].CrX) <= maxSum)
             {
                 currentCombination.Add(monsters[i]);
                 FindCombinationsInRangeHelper(monsters, minSum, maxSum, k - 1, i, currentCombination, result);

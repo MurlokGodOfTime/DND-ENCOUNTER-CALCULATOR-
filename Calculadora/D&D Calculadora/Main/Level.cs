@@ -6,16 +6,13 @@ public class Level
     public int MediumM { get; set; }
     public int HardM { get; set; }
     public int DeadlyM { get; set; }
-
     public int EasyR { get; private set; }
     public int MediumR { get; private set; }
     public int HardR { get; private set; }
     public int DeadlyR { get; private set; }
-
     public void SetLevel(int level)
     {
         // Define multiplicador de xp por nivel de personagem
-        // Ideia: fazer como a classe monster?
         switch (level)
         {
             case 1:
@@ -75,15 +72,10 @@ public class Level
             case 19:
                 EasyM = 2400;MediumM = 4900;HardM = 7300;DeadlyM = 10900;
                 break;
-            case 20:
+            default:
                 EasyM = 2800;MediumM = 5700;HardM = 8500;DeadlyM = 12700;
                 break;
-            default:
-                EasyM = 0;MediumM = 0;HardM = 0;DeadlyM = 0;
-                break;
         }
-
-
     }
     // Faz o calculo de multiplicador de xp e numero de jogadores
     public void SetLevelResult(int players)
@@ -92,6 +84,5 @@ public class Level
         MediumR = players * MediumM;
         HardR = players * HardM;
         DeadlyR = players * DeadlyM;
-
     }
 }
